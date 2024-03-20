@@ -1,8 +1,0 @@
-server:
-  port: 8080
-
-spring:
-  security:
-    user:
-      name: minit88
-      password: 12345
