@@ -20,3 +20,16 @@ Principal (Interface):
 Authentication (Interface) :
 - getPrincipal 메소드를 상속하며 Authentication 내에는 getName, getAuthorities 와 같은 다른 메소드가 있다.
 - 인증이 성공했는지 여부를 결정하려고 하는 모든 시나리오의 반환 유형
+
+UserDetailsService (Interface) :
+- loadUserByUsername 메소드를 가지며, 유저 네임으로 유저 세부 정보가 불러올 수 있음.
+- SQL을 통해 유저의 로그인 정보가 유출되지 않도록 유저 이름만으로 참조가 가능하도록 함
+
+jdbcDaoImpl 
+- UserDetailsService 인터페이스를 구현하는 클래스
+- JDBC를 이용하여 데이터베이스에 접근하고 데이터를 조작하는 클래스
+- 역할
+  - 데이터베이스와의 연결 설정
+  - SQL 쿼리 실행
+  - 결과셋 처리
+- 로그인 후 loadUserByUsername 메소드을 통해 username 값으로 해당 사용자 정보를 데이터베이스에서 가져오는 역할을 수행
