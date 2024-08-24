@@ -5,9 +5,18 @@ spring:
     url: ${RDS_END_POINT}
     username: ${RDS_MYSQL_ADMIN_ID}
     password: ${RDS_MYSQL_ADMIN_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     properties:
       hibernate:
-        format_sql: true
+        hbm2ddl:
+          auto: update
+
     show-sql: true
+  devtools:
+    restart:
+      enabled: true  # 자동 재시작 활성화
+    livereload:
+      enabled: true  # LiveReload 활성화
+

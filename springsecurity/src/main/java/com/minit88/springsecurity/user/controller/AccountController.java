@@ -1,4 +1,4 @@
-package com.minit88.springsecurity.controller;
+package com.minit88.springsecurity.user.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
