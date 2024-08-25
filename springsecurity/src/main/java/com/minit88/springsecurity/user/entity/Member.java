@@ -4,9 +4,10 @@ import com.minit88.springsecurity.common.audit.CommonEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+
 @Getter
 @Entity
-public class User  extends CommonEntity {
+public class Member extends CommonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;

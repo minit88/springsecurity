@@ -16,25 +16,29 @@ import org.w3c.dom.Node;
 
 import javax.sql.DataSource;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 public class ProjectSecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
-                        .requestMatchers("/notices", "/contact").permitAll())
-                .formLogin(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults()
-                );
-
+        http.csrf((csrf) -> csrf.disable())
+                .authorizeHttpRequests((requests)->requests
+                        .requestMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
+                        .requestMatchers("/notices","/contact","/register").permitAll())
+                .formLogin(withDefaults())
+                .httpBasic(withDefaults());
         return http.build();
     }
 
+    /*
     @Bean
     public UserDetailsService userDetailsService(DataSource dataSource){
         return new JdbcUserDetailsManager(dataSource);
     }
+
+     */
 
     @Bean
     public PasswordEncoder passwordEncoder(){

@@ -1,10 +1,12 @@
 server:
   port: 8080
 spring:
+  config:
+    import: optional:file:.env
   datasource:
-    url: ${RDS_END_POINT}
-    username: ${RDS_MYSQL_ADMIN_ID}
-    password: ${RDS_MYSQL_ADMIN_PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
