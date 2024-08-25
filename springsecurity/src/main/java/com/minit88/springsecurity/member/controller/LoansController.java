@@ -1,4 +1,4 @@
-package com.minit88.springsecurity.user.controller;
+package com.minit88.springsecurity.member.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

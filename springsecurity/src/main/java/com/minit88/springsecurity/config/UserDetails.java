@@ -1,7 +1,7 @@
 package com.minit88.springsecurity.config;
 
-import com.minit88.springsecurity.user.entity.Member;
-import com.minit88.springsecurity.user.repository.UserRepository;
+import com.minit88.springsecurity.member.entity.Member;
+import com.minit88.springsecurity.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,13 +20,13 @@ public class UserDetails implements UserDetailsService {
     - userName을 기반으로 사용자의 상세정보를 로드하는 역할을 한다.
      */
     @Autowired
-    UserRepository userRepository;
+    MemberRepository memberRepository;
 
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String userName, password = null;
         List<GrantedAuthority> authorities = null;
-        List<Member> members = userRepository.findByEmail(username);
+        List<Member> members = memberRepository.findByEmail(username);
         if(members.size()==0){
             System.out.println("User not found");
             throw new UsernameNotFoundException(username);
