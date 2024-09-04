@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public class UserDetails implements UserDetailsService {
+/*
+UsernamePwdAuthenticationProvider로 대체 되었습니다.
+ */
+public class UserDetails {
     /*
     - UserDetailsService는 Spring Security에서 사용자 인증 정보를 제공하기 위해 사용되는 핵심 인터페이스
     - userName을 기반으로 사용자의 상세정보를 로드하는 역할을 한다.
      */
-    @Autowired
-    MemberRepository memberRepository;
-
+        /*
     @Override
     public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String userName, password = null;
@@ -38,4 +38,6 @@ public class UserDetails implements UserDetailsService {
         }
         return new User(userName,password,authorities);
     }
+
+         */
 }
