@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface MemberRepository extends CrudRepository<Member,Long> {
 
     List<Member> findByEmail (String email);
-    Optional<Member> findByEmailAndPassword(String email, String password);
+    Optional<Member> findByEmailAndPwd(String email, String password);
 }

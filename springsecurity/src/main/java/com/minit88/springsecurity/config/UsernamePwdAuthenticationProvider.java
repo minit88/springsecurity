@@ -30,7 +30,7 @@ public class UsernamePwdAuthenticationProvider implements AuthenticationProvider
     String pwd = authentication.getCredentials().toString();
         List<Member> memberList=  memberRepository.findByEmail(userName);
         if (memberList.size()>0){
-            if(passwordEncoder.matches(pwd,memberList.get(0).getPassword())){
+            if(passwordEncoder.matches(pwd,memberList.get(0).getPwd())){
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority(memberList.get(0).getRole()));
                 return new UsernamePasswordAuthenticationToken(userName, pwd, authorities);

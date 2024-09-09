@@ -1,11 +1,14 @@
 package com.minit88.springsecurity.member.entity;
 
-import com.minit88.springsecurity.common.audit.CommonEntity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -13,17 +16,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Member extends CommonEntity {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-
+    private Long memberId;
+    private String name;
     @Column(nullable = false)
     private String email;
-
-    @Column(nullable = false)
-    private String password;
-
+    private String mobileNumber;
+    private String pwd;
+    private LocalDateTime createdAt;
     @Column(nullable = false)
     private String role;
 }

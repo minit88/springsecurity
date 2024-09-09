@@ -17,12 +17,12 @@ public class MemberService {
     private PasswordEncoder passwordEncoder;
 
     public void signUpMember(MemberRequest memberRequest) {
-        Optional<Member> existingMember= memberRepository.findByEmailAndPassword(memberRequest.getEmail(), memberRequest.getPassword());
+        Optional<Member> existingMember= memberRepository.findByEmailAndPwd(memberRequest.getEmail(), memberRequest.getPassword());
         if (existingMember.isPresent()){
             throw new IllegalArgumentException("Member with email " + memberRequest.getEmail() + " already exists.");
         }
         String hashPwd = passwordEncoder.encode(memberRequest.getPassword());
-        Member member = new Member().builder().email(memberRequest.getEmail()).role(memberRequest.getRole()).password(hashPwd).build();
+        Member member = new Member().builder().email(memberRequest.getEmail()).role(memberRequest.getRole()).pwd(hashPwd).build();
         memberRepository.save(member);
     }
 }
