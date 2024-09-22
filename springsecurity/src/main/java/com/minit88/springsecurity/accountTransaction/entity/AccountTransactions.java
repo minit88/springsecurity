@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class accountTransactions {
+public class AccountTransactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountTransactionId;

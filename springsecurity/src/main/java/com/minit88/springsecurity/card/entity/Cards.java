@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class cards {
+public class Cards {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardId;
