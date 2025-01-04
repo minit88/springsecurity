@@ -12,6 +12,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.crypto.SecretKey;
@@ -25,7 +28,7 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try{
-            String jwt = request.getHeader("Authorization");
+            String jwt = request.getHeader("Authorization").substring(7).trim(); // JWT 추출 및 공백 제거
             if (null != jwt){
                 SecretKey secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
                 if (null != secretKey){
@@ -37,13 +40,15 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
                 }
             }
         filterChain.doFilter(request, response);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             throw new InternalError(e.getMessage());
         }
+
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return request.getServletPath().equals("/login"); // reqeust path가 "/login" 가 아니면 필터 적용 -> 로그인을 제외한 요청에 적용
+        return request.getServletPath().equals("/user"); // reqeust path가 "/login" 가 아니면 필터 적용 -> 로그인을 제외한 요청에 적용
     }
 }
