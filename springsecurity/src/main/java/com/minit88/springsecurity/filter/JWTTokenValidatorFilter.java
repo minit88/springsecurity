@@ -42,13 +42,13 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
         }
         catch (Exception e) {
-            throw new InternalError(e.getMessage());
+            throw new InternalError(e);
         }
 
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return request.getServletPath().equals("/user"); // reqeust path가 "/login" 가 아니면 필터 적용 -> 로그인을 제외한 요청에 적용
+        return request.getServletPath().equals("/apiLogin") ; // reqeust path가 "/login" 가 아니면 필터 적용 -> 로그인을 제외한 요청에 적용
     }
 }
