@@ -1,4 +1,4 @@
 package com.minit88.springsecurity.member.dto;
 
-public class LoginRequestDTO {
+public record LoginRequestDTO(String username, String password) {
 }
