@@ -1,12 +1,10 @@
-### ✏️ 학습 내용 정리
+### ✏️ &nbsp;_학습 내용 정리_
 ___
-<div style="margin-left: 20px;margin-top: 10px;" id="details">
 <details>
-<summary style="font-weight: bold; font-size: 20px;">&nbsp;Password Management </summary>
-<div style="margin-left: 20px;margin-top: 20px;">
+
+<summary >&nbsp;Password Management </summary>
 
 ### Pwd Management
-___
 
 <img src="./images/pwd01.png" alt="Spring Security Diagram" width="400">
 
@@ -26,12 +24,8 @@ ___
           - 비밀번호는 절대 원문으로 저장되지 않으며, 항상 해싱된 값으로 저장.
           - 데이터베이스 유출 시에도 해싱된 값만 공개되므로 원본 비밀번호를 보호할 수 있다.
 
-</div>
-<div style="margin-left: 20px;margin-top: 20px;">
 
 ### Password Validation Process
-___
-
 <img src="./images/pwd02.png" alt="Spring Security Diagram" width="400">
 
 1. **User Input(사용자 입력)**
@@ -51,12 +45,10 @@ ___
        - 이 비교과정에서 일치여부를 확인한다.
            - 일치(O) : 로그인 성공
            - 일치(X) : 로그인 실패
-</div>
 
-<div style="margin-left: 20px;margin-top: 20px;">
+
 
 ### Password Encoder 구현체
-___
 
 - **Password Encoder :**
     - Spring Security에서 제공하는 인터페이스로, 비밀번호를 해싱하거나 검증하기 위해 사용된다. 사용자 비밀번호를 안전하게 관리하기 위한 표준화된 메커니즘을 제공한다.
@@ -82,8 +74,5 @@ ___
       - 최신 해싱 알고리즘
       - BCrypt와 SCypt에서 사용되는 연산 능력, 메모리 요구
       - 다중 스레드를 필요로 한다.
-    
-</div>
 
 </details>
-</div>
