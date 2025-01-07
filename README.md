@@ -6,27 +6,27 @@ ___
 
 ### Pwd Management
 
-<img src="./images/pwd01.png" alt="Spring Security Diagram" width="400">
+<img src="./images/pwd02.png" alt="Spring Security Diagram" width="400">
 
 - **Encoding and Decoding**
     - 데이터를 한 형식에서 다른 형식으로 변환하는 과정
     - 기밀이 포함되지 않기 때문에 디코딩을 하면 쉽게 탈취 가능 즉, 일반적으로 사용하지 않음
     - ex ) ASCII, BASE64 등
-  - **Encryption**
-      - 비밀 키를 제공해 데이터를 암호화 한다.
-      - 암호화 된 비밀번호는 복호화 과정을 거쳐 원래의 비밀번호를 알 수 있다.
-      - 암호화 알고리즘과 비밀키는 주로 백엔드 애플리케이션 내부에 기밀 데이터로 관리 된다.
-  - **Hashing**
-      - **Hashing과 Spring Security**:
-          - 해싱은 비밀번호를 보호하기 위한 중요한 기법.
-          - 예: `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `PBKDF2PasswordEncoder` 등.
-      - **생산 환경에서의 권장 사항**:
-          - 비밀번호는 절대 원문으로 저장되지 않으며, 항상 해싱된 값으로 저장.
-          - 데이터베이스 유출 시에도 해싱된 값만 공개되므로 원본 비밀번호를 보호할 수 있다.
+- **Encryption**
+    - 비밀 키를 제공해 데이터를 암호화 한다.
+    - 암호화 된 비밀번호는 복호화 과정을 거쳐 원래의 비밀번호를 알 수 있다.
+    - 암호화 알고리즘과 비밀키는 주로 백엔드 애플리케이션 내부에 기밀 데이터로 관리 된다.
+- **Hashing**
+    - **Hashing과 Spring Security**:
+        - 해싱은 비밀번호를 보호하기 위한 중요한 기법.
+        - 예: `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `PBKDF2PasswordEncoder` 등.
+    - **생산 환경에서의 권장 사항**:
+        - 비밀번호는 절대 원문으로 저장되지 않으며, 항상 해싱된 값으로 저장.
+        - 데이터베이스 유출 시에도 해싱된 값만 공개되므로 원본 비밀번호를 보호할 수 있다.
 
 
 ### Password Validation Process
-<img src="./images/pwd02.png" alt="Spring Security Diagram" width="400">
+<img src="./images/pwd01.png" alt="Spring Security Diagram" width="400">
 
 1. **User Input(사용자 입력)**
     - 사용자가 로그인 폼에 Username(admin)과 Password(12345)를 입력한다.
