@@ -1,5 +1,6 @@
 ### ✏️ 학습 내용 정리
-
+___
+<div style="margin-left: 20px;margin-top: 10px;" id="details">
 <details>
 <summary style="font-weight: bold; font-size: medium;">&nbsp;Password Management </summary>
 <div style="margin-left: 20px;margin-top: 20px;">
@@ -85,3 +86,4 @@ ___
 </div>
 
 </details>
+</div>
