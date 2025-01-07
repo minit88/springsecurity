@@ -2,7 +2,7 @@
 ___
 <div style="margin-left: 20px;margin-top: 10px;" id="details">
 <details>
-<summary style="font-weight: bold; font-size: medium;">&nbsp;Password Management </summary>
+<summary style="font-weight: bold; font-size: 20px;">&nbsp;Password Management </summary>
 <div style="margin-left: 20px;margin-top: 20px;">
 
 ### Pwd Management
